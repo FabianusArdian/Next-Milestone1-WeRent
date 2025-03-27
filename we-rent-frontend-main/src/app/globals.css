@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@config '../../tailwind.config.ts';
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #c7ab55;
+  --color-accent: #3b6549;
+  --color-yellow: #f2c14a;
+  --color-gray: #9b9a9a;
+  --color-light-gray: #d9d9d9;
+
+  --font-body: "montserrat", sans-serif;
+  --font-number: var(--font-poppins);
+
+  --text-xxs: 0.625rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Helvetica, sans-serif;
+}
