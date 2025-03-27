@@ -1,5 +1,6 @@
 import FloatButton from "@/_components/button/FloatButton";
 import ImageCard from "@/_components/imageCard/imageCard";
+import DetailsSkeleton from "@/_components/loadings/DetailsLoading";
 import ReviewItemLoading from "@/_components/loadings/ReviewItemLoading";
 import ReviewItem from "@/_components/review/ReviewItem";
 import Details from "@/_containers/detail-page/Details";
@@ -27,12 +28,15 @@ export default async function ProductDetailPage({
       <ImageCard image={product.product_image} />
       <div className="px-5 pt-4.5">
         <section>
-          <Details
-            name={product.name}
-            totalReview={review.reviews.length}
-            averageRating={review.average_rating}
-            size={product.size}
-          />
+          <Suspense fallback={<DetailsSkeleton />}>
+            <Details
+              name={product.name}
+              totalReview={review.reviews.length}
+              averageRating={review.average_rating}
+              size={product.size}
+              designer_photo={product.designer_photo}
+            />
+          </Suspense>
         </section>
         <section>
           <ProductDetail productInfo={product} />
